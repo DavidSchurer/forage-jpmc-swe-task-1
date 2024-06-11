@@ -1,0 +1,188 @@
+From 1fba79b92fe025a3421395bd19d2f243972741e8 Mon Sep 17 00:00:00 2001
+From: David Schurer <david.schurer@yahoo.com>
+Date: Sun, 31 Mar 2024 02:18:53 -0700
+Subject: [PATCH] added task 1 changes
+
+---
+ 0001-Re-add-sample-unit-test.patch  |  44 ++++++++++++++++++++++++++++
+ README.md                           |   2 +-
+ __pycache__/client3.cpython-311.pyc | Bin 0 -> 1973 bytes
+ __pycache__/client3.cpython-312.pyc | Bin 0 -> 1726 bytes
+ client3.py                          |  13 +++++---
+ multi_commit.patch                  |   0
+ 6 files changed, 54 insertions(+), 5 deletions(-)
+ create mode 100644 0001-Re-add-sample-unit-test.patch
+ create mode 100644 __pycache__/client3.cpython-311.pyc
+ create mode 100644 __pycache__/client3.cpython-312.pyc
+ create mode 100644 multi_commit.patch
+
+diff --git a/0001-Re-add-sample-unit-test.patch b/0001-Re-add-sample-unit-test.patch
+new file mode 100644
+index 0000000..f4adbc1
+--- /dev/null
++++ b/0001-Re-add-sample-unit-test.patch
+@@ -0,0 +1,44 @@
++From 879221fec2b863d37d5b493f02a530a8098ef6ef Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 00:11:51 +1100
++Subject: [PATCH] Re-add sample unit test
++
++---
++ client_test.py | 25 +++++++++++++++++++++++++
++ 1 file changed, 25 insertions(+)
++ create mode 100644 client_test.py
++
++diff --git a/client_test.py b/client_test.py
++new file mode 100644
++index 0000000..af2bf26
++--- /dev/null
+++++ b/client_test.py
++@@ -0,0 +1,25 @@
+++import unittest
+++from client3 import getDataPoint
+++
+++class ClientTest(unittest.TestCase):
+++  def test_getDataPoint_calculatePrice(self):
+++    quotes = [
+++      {'top_ask': {'price': 121.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
+++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+++    ]
+++    """ ------------ Add the assertion below ------------ """
+++
+++  def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
+++    quotes = [
+++      {'top_ask': {'price': 119.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
+++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+++    ]
+++    """ ------------ Add the assertion below ------------ """
+++
+++
+++  """ ------------ Add more unit tests ------------ """
+++
+++
+++
+++if __name__ == '__main__':
+++    unittest.main()
++-- 
++2.42.0.windows.2
++
+diff --git a/README.md b/README.md
+index 14926f5..d49e08d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,2 @@
+ # JPMC Task 1
+-Starter repo for task 1 of the JPMC software engineering program
++Starter repo for task 1 of the JPMC software engineering program
+\ No newline at end of file
+diff --git a/__pycache__/client3.cpython-311.pyc b/__pycache__/client3.cpython-311.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..8b9b7d9cf66268674031fd6ee1db0f49d446b8a5
+GIT binary patch
+literal 1973
+zcmaJBOK2NMbVmEp%9d=)k)1jg?Iz$fN+W*~(z?cJaV)t_A;ylIG+xw*wPx(BEo+tC
+zbwX5`iqeAuIj9hbpeguJ(iC4zDNT+k<kXWkh(;_F3_ayi1nJ4AzFAq89cbqB=DnFW
+z??3ZXAkc=OtsM6){^LXFZ$>m*U>AAyCr0Q#B8cELQW`5(uuFRsj(8NFaEd_qZ;>Jr
+z0ic&kL|pN(`^Fz0M13&ZsPGWvY{G1`gH#NC`B-TOKD6v_a!_u$X#?8mXzuP`DZkOV
+zpKjtH2QRlY!S-hJ2p!aWklN_lW7~&3e8YVu=tCM(x@izR7*Y;_W|1B`C^f+&q=b|n
+zrB^vj57TZM8V8BM`4;ig(D#@~v<IM%_5y69hXJ<#;5#S-qr1cI4L?9H?IwY~Jqv;A
+zXi*O#?wfAx8ADD)uXzlTej|7evN?w$oi7>FbnfVN%gT-o4W;#zn!c`^*4XIq=<v{u
+zHEP`cSR?1YTG#%Cc&7GZ3b(*3#KC;^0Kk3ZLwS(dvSS@v`?%rE(>fzu3qR=Ry63f9
+ze2eo9x466~&*i`lBIMc;TIcha?d17I9=sHDAILL?PS#RXR?}(Ox=!T`rGygsrkY-(
+zrfli*63tLUwSYq=s-<RiEn~@!U|M==#qnBtHo2e?N5~pliZ*D~TzSa?9l?&UnATM*
+zA~?d0HQk~Hi;d%h3&{q*4|p4>0SQ5-06=DK=hM_!;<8B%GZ9m7Y9tY(<_aiFd^U4&
+zQl8Qcb&1MzU&IrOE*f3VuBM{qEgH2zVss>tN^3M@of*vDcKl1!ih<=b%yNUh7n!M2
+z02I(RKVI_(OYh#DF2w)p>M7Ckg=+8dja${;A-ik1+BICb@ITwNKySIv4jkK<u>Avt
+zc&)vw6e-U?5-RP{3Lkw1(ot%!+<;)XTNZ<WxMhI}-u(<b#50HTjAk6j5b{8=gh4sN
+zNrcNClRu%B40+IWSznah=p|KI&5&JuK{l9%>7P-=<9K(^o5+I6&ScqO|Ar$$KrS&!
+zMhM80FwH1{Mlie`rK8{E3;CMVQ53iLsLtNftvg>=q_^uFl0t>N!TuLVN+wrTEt5><
+zyt6F7M9%qS)sjy@hR1T^DH)P6mXl63Y#iIck(}gemIq9Sn>at|aIyGQq|f1(O+Dj?
+z2Kb||Ivs09I;|}X8WbLyX*ptpc7)l>@k{d#o_4e7TF*?#sH-%Yba)L4%n?Aw5_NFW
+z5uo&l>3Ew`ydXu-Qcwdmv#MGSZ%~yuqFb4!Bf2p&4fgT7b!tHTk->glw>I4phXM++
+z4d%TY%pGZb6&_HUeq_7{d+cSK8Gv;TV_ZLpu)omGdJP2%Zm*%9N^{gj<U3UmU=gGO
+zu8UqgSVwyx<i+nWau<XU?=R+_bA1)AZ#xhyeqI_V4V3YBC+?lNbM5Z6I%*RpaRU}{
+zE!bZQ-8)jAdNBPWeENC#^w!zO<G+kQ4LlW}1%B^*)@h%ash*j!!?V@!?2GV~=iw`M
+z_-ZwL)eg>AgY%GiX|fhPR1|AH{dL6o2uNnI7_W_-+X_FS_DHNc60`k-#dzt%vi7K_
+z7Cu^>DxJM^5uQ^qUW`9kWBsYddSzDG9SOD47~KoDKUMXoD(={p0!5*?TplftZcIHo
+q`{Tu}_n!>>dd}{jsP<3T9TT>6zABxsxTD^O_#+U5I^S~G&BuS(it45S
+
+literal 0
+HcmV?d00001
+
+diff --git a/__pycache__/client3.cpython-312.pyc b/__pycache__/client3.cpython-312.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..359fdbe150a304187c8992fc769bec8958324200
+GIT binary patch
+literal 1726
+zcmah}O>7fa5Pr}5<K4t|;$R07-134Hih(5jh(e>#DkM%zC87ihZB}lrjrS$2<9N;P
+z1{Bw*QPqP{dob#OpsFfGJy7KWQl+AvXnW|PmlzA-K6;?)iAx)jo^tBEwcS#I)F<uC
+zym>R<%$u3FKL>*?2-e&#b><Hhq2KwYxq=O0;|50PDl(9Pvq-CRtYL5O(*(n(iH4v_
+zhWHWEWJ3b#r-~uZ?MBG{#)qg1UkjC10EMq6A4TupKuBwaQ<T|OKYN-|A=CZzzAk58
+zcveTn%#LTZfQvJ}XZ0%$RWpw!&-DDitrk|1iL?$HhV0{z{T7HK(=APmqzJl*7S%en
+zt#m8xpphW}1)FV#pGH2zhC-u2RoV%(g>D7f`nlTl#^{s1V%<6bK7QI^1iQc=c!=|r
+z#%&7nzf}aEuSB$n7jeApF~7igq34|I<_8A`vQ}Epp0gZx@aX=d`v=Z1P<!z;(>V72
+zCG#)nMY_=s?t~z3B*3?k19BCqs0iKWF)v~FA3M<bxXuu~Y#RDYzW-Q=&#@4SzM@dz
+zo>HL|FvTL~nxZ%(o<?!GaD+_Qma&kgM9*f4dybMEr3N*~1wFe!9pYMKmgcCfyI?^K
+z-PQA!nR5w~9M?+EF~4i&Q`4rwq`YmWX??FdbB}q!;+RP@Sxa~05|hp^ST42sZJ7!V
+zsk*%iwsp~l(jrF!LipNzBR!Zr<51g4j_MaoBRNW)IS7_~bK>L(8MADCmXgzNCz3Os
+z*q6!Ar~90Xw9f^^z5~g0)}%T2P=9`r1!k!`3Ykyv%<T}5z(c(SWC=YIhiZXv`K8O_
+zONn3Gqh-2$qSCqR`o&7;K(&4U(uwEkYQfIsu1av{_2EjOcPUY8Z7;`{r*2BCt$nLv
+z-v;2K^wZ<dWv|7%K=4|O4eUKqyyz=(`3O8%sfdc0H|aE5^u>k3PVzc+2~^&+h&4mJ
+zdZl!t=ZuCtO>B-l{xypGn7?t}6s8@1Mu^S-B}{=5oZ?7!1h#wNb9#Z)ukR0)dp<1I
+zl+dGw)Ye(Pc=>}><;67tDG|HPLrA6Obu*Vr75tODlLjfMM0d$<=;dHR-bbM9g9T+@
+zJ-5M494{zdMAGXpVfgq66Gjtb@h&E294p6U8}4Dvv(SQ_&6?BwHibvxxJ<6^nKXGO
+zacYX;aj#!q)=WvIa{4??rI={KC@~2zW+}rdCc%&y4)Zrr{D5NRDTIOPnAcq<+Eh1~
+z?9HIVWUp3^&40k&MA}ewWCu9mQ|Jvdj7pd*`0c$SZYo3b@Kmz&ReLY!_#1To1hOVz
+zj5qcm9C(O=4^ebYM(VyL37DiT;dR-M``06Wykjkb#6YQVPw4tB7{1cGj6dD|@q6p2
+zMH;~+Tnle6N3M2X>0TcDV*J|pgV@1J?BK1#-wxd#x*NPJ{}lW__+wl3&_p#h`5<<-
+z5<6Rsy;BWOmE=dtNG-gjB-f(b*O8zaxRm(iz_B~DdSJ8?=r1M8uPmE4qqSI1X{>zs
+z@<|p5f4A_1d2dp?m(*7~rtb&RYkuzbqy?#=Qs&yx>ti<$e|hrO%XfNjAFFO3u7rl~
+RE61Nid75hy61%;E{0*}Lu1Np@
+
+literal 0
+HcmV?d00001
+
+diff --git a/client3.py b/client3.py
+index 3fc09b7..c33b8d5 100644
+--- a/client3.py
++++ b/client3.py
+@@ -35,15 +35,18 @@ def getDataPoint(quote):
+     stock = quote['stock']
+     bid_price = float(quote['top_bid']['price'])
+     ask_price = float(quote['top_ask']['price'])
+-    price = bid_price
++    price = (bid_price + ask_price)/2
+     return stock, bid_price, ask_price, price
+ 
+ 
+ def getRatio(price_a, price_b):
+     """ Get ratio of price_a and price_b """
+     """ ------------- Update this function ------------- """
+-    return 1
+-
++    if price_b == 0:
++        return
++    
++    if price_b != 0:
++        return price_a/price_b
+ 
+ # Main
+ if __name__ == "__main__":
+@@ -52,8 +55,10 @@ if __name__ == "__main__":
+         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+ 
+         """ ----------- Update to get the ratio --------------- """
++        prices = {}
+         for quote in quotes:
+             stock, bid_price, ask_price, price = getDataPoint(quote)
++            prices[stock] = price
+             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+ 
+-        print("Ratio %s" % getRatio(price, price))
++        print("Ratio %s" % getRatio(prices["ABC"], prices["DEF"]))
+diff --git a/multi_commit.patch b/multi_commit.patch
+new file mode 100644
+index 0000000..e69de29
+-- 
+2.42.0.windows.2
+
